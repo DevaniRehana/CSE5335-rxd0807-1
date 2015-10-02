@@ -1,86 +1,10 @@
 <!DOCTYPE html>
+<html>
 <head>
-
-	<h2> Click this button to display the JSON content </h2>
-	
-</head>]
+  <% include ../partials/header.ejs %>
+</head>
 
 <body>
 
-<button id="click" style="color:red; background-color:blue; border-radius:20px;"> Click me </button>
-<p> body </p>
-
-<style>
-.hidden {display: none;
-	border-style: solid;
-    border-width: 5px;
-} 
- html, body {
-        height: 100%;
-        margin: 10px;
-        padding: 10px
-
-}
-</style>
-
-
-
-<table id="table">
-<tr>
-<th> streetName </th>
-<th> Place </th>
-</tr>
-</table> 
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
-
-
-<script>
-     $(document).ready(function(){
-	$("#click").click(function(){
-    $.ajax({
-        url: 'http://192.168.0.3:8087/',
-	type: 'GET',
-        dataType: "jsonp",
-	crossDomain: true,
-        jsonpCallback: "/addrjsonp",
-        cache: false,
-        timeout: 10000,
-        success: function(data) {
-		console.log("success");
-	var len=data.split("},");
-	var parse= JSON.parse(data);
-	var l= len.length;
-	
-	var txt="";
-
-for(var i=0; i<l; i++){
-		
-		txt = txt + "<tr><td id = td>"+ parse.Address[i].streetName + "</td><td>" + parse.Address[i].Place+"</td><td>";
-		
-	}
-	var length= $("#table").find('td:td').length;	
-	console.log(length);
-
-	if(length==0){
-	$("#table").append(txt).removeClass("hidden");
-	
-	}	
-        },
-
-
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert('error ' + textStatus + " " + errorThrown);
-        }
-});  
-});
-});
-
-
-</script>
- 
 </body>
-</html>  
-
-
-
+</html>
