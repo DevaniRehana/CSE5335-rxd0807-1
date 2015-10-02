@@ -34,9 +34,9 @@
         success: function(data) {
 		console.log("success");
 	
-	for(var i = 0, size = list1.length; i < size ; i++)
+	for(var i = 0, size = data.length; i < size ; i++)
 	{
-   var item = list1[i];
+   var item = data[i];
    txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+"</td><td>";
    console.log(txt);
     } 
