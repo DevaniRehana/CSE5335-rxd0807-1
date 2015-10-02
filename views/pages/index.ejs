@@ -33,13 +33,20 @@
 	
         success: function(data) {
 		console.log("success");
-	var txt;
+	var txt = '';
 	for(var i = 0, size = data.length; i < size ; i++)
 	{
    var item = data[i];
    txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+"</td><td>";
-   console.log(txt);
+   
     } 
+    console.log(txt);
+    
+    var length= $("#table").find('td:td').length;	
+	console.log(length);
+
+	if(length==0){
+	$("#table").append(txt);
 
 
 	}
