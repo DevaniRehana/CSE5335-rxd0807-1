@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <% include ../partials/header.ejs %>
+
+	<h2> Click this button to display the JSON content </h2>
+	
 </head>
 
 <body>
 
+<button id="click" style="color:red; background-color:blue; border-radius:20px;"> Click me </button>
+<p> body </p>
+
+
+
+
+<table id="table">
+<tr>
+<th> firstName </th>
+<th> lastName </th>
+</tr>
+</table> 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+
+
+<script>
+     $(document).ready(function(){
+	$("#click").click(function(){
+    $.ajax({
+        url: '/json',
+	type: 'GET',
+        dataType: "json",
+	
+        success: function(data) {
+		console.log("success");
+	
+	for(var i = 0, size = list1.length; i < size ; i++)
+	{
+   var item = list1[i];
+   txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+"</td><td>";
+   console.log(txt);
+    } 
+
+
+	}
+	});
+	});
+	});
+		
+       
+
+
+
+</script>
+ 
 </body>
-</html>
+</html>  
+
+
+
