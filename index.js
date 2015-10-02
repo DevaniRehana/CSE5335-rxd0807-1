@@ -1,20 +1,22 @@
-var express = require('express');
-var app = express();
 
-app.set('port', (process.env.PORT || 5000));
+var http = require('http');
 
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
-
+var server = http.createServer(function(req,res){
+	res.writeHead(200, {'Content-Type':'text/plain/json'});
+	res.end('/addrjsonp(\'{"Address":[' +
+	'{"streetName":"WallStreet","Place":"NewYorkCity"},' +
+	'{"streetName":"Broadway","Place":"NewYorkCity"},' +
+	'{"streetName":"HollywoodBlvd","Place":"LA"},' +
+	'{"streetName":"LasVegasBlvd","Place":"LasVegas"},' +
+	'{"streetName":"MichiganAvenue","Place":"Chicago"},' +
+    '{"streetName":"Cooper","Place":"Dallas"},' +
+    '{"streetName":"BeverlyHills","Place":"California"},' +
+    '{"streetName":"CanalStreet","Place":"Manhattan"},' +
+    '{"streetName":"SpringCreek","Place":"Dallas"},' +
+    '{"streetName":"DowningStreet","Place":"England"}]}\')');
+	});
+	server.listen(8087);
+	
+console.log('Listening port number:8087'); 
+	
 
