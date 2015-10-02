@@ -27,7 +27,7 @@ var list1 = [
     {"firstName":"John", "lastName":"Doe"}, 
 ]
 
-  response.render(list1);
+  return list1;
 });
 
 app.listen(app.get('port'), function() {
