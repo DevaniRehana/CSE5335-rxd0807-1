@@ -35,6 +35,27 @@ width: 40%;
 
 <script>
      $(document).ready(function(){
+	
+	
+	
+function initMap(data) {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+	
+	
+	
+	
 	$("#click").click(function(){
     $.ajax({
         url: '/json',
@@ -63,7 +84,16 @@ width: 40%;
 	
 	}
    });
- });	
+ });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
  });
 	
 </script>
@@ -107,20 +137,6 @@ var point = new GLatLng(lat,lon);
 
 //google.maps.event.addDomListener(window, 'load', initialize);
 
-function initMap(data) {
-  var myLatLng = {lat: -25.363, lng: 131.044};
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}
 
 
   </script>
