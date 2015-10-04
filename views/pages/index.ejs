@@ -10,8 +10,14 @@
 <button id="click" style="color:red; background-color:blue; border-radius:20px;"> Click me </button>
 <p> body </p>
 
+<style>
+#map-canvas{
+border-style: solid;
+border-width: 5px;
+height: 60%;
+width: 40%;
 
-
+}</style>
 
 <table id="table">
 <tr>
@@ -62,6 +68,69 @@
 
 </script>
  
+ 
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+var map; var marker;var infoWindow= new google.maps.InfoWindow();
+
+
+
+
+
+
+function initMap() {
+
+var myLatLng = new google.maps.myLatLng(13.05,80.18);
+ var mapOptions = {
+    zoom: 8,
+    center: myLatLng
+  };
+	
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+}
+
+
+
+
+
+function getLocation(){
+var location= document.getElementById('myLatLng').value;
+console.log("test:"+ location);
+var locString=location.split(',',2);
+var lat=parseFloat(locString[0]);
+var lon=parseFloat(locString[1]);
+var myLatLng = new google.maps.myLatLng(lat,lon);
+map.setZoom(11);
+marker=new google.maps.Marker({
+position: myLatLng,
+map: map
+});
+
+
+      infoWindow.setContent(location);
+  
+
+    infoWindow.open(map,marker);
+  
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+
+<! *********button on click calls the get location function ********>
+
+
+<br></br>  <br></br> 
+<h3>Click button "Click Map" to display location of the particular "myLatLng" </h3>  
+<p>
+<input id="myLatLng" type="text" value="13.05,80.18">
+<button id= "but" type="Button" onclick= "getLocation()"> Click map </button>
+</p>
+    <div id="map-canvas">
+	
+	 </div>
 </body>
 </html>  
 
