@@ -12,8 +12,17 @@ center: latlng,
 mapTypeId: google.maps.mapTypeId.ROADMAP
 };
 var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-}
+
 google.maps.event.addDOMListener(window,'load',initialize);
+
+var marker=new google.maps.Marker({
+  position:latlng,
+  animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+}
+
 </script>
 <head>
 
