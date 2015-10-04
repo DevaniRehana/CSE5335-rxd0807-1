@@ -35,23 +35,11 @@ width: 40%;
 
 <script>
      $(document).ready(function(){
+	initMap(data);
 	
 	
 	
-function initMap(data) {
-  var myLatLng = {lat: -25.363, lng: 131.044};
 
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}
 	
 	
 	
@@ -79,7 +67,6 @@ function initMap(data) {
 	if(length==0){
 	$("#table").append(txt);
 	}
-	initMap(data);
 	
 	
 	}
@@ -104,6 +91,21 @@ function initMap(data) {
     
 <script>
 
+function initMap(data) {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
 /*function initMap() {
 
 var myLatLng = new google.maps.myLatLng(13.05,80.18);
@@ -115,6 +117,7 @@ scrollwheel: false,
 zoom: 4,
 });
 }
+
 
 
 
