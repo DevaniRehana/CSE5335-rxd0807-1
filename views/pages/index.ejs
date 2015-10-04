@@ -7,9 +7,6 @@
 
 <body>
 
-
-
-
 <style>
 #map-canvas{
 border-style: solid;
@@ -71,26 +68,21 @@ width: 40%;
  
  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script>
-var map; var marker;var infoWindow= new google.maps.InfoWindow();
-
-
-
-
+    
+var infoWindow= new google.maps.InfoWindow();
 
 
 function initMap() {
 
 var myLatLng = new google.maps.myLatLng(13.05,80.18);
- var mapOptions = {
-    zoom: 8,
-    center: myLatLng
-  };
-	
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+
+// create a map object and specify the DOM element for display	
+var map = new google.maps.Map(document.getElementById('map-canvas'), {
+center: myLatLng,
+scrollwheel: false,
+zoom: 4,
+});
 }
-
-
 
 
 
@@ -101,14 +93,15 @@ var locString=location.split(',',2);
 var lat=parseFloat(locString[0]);
 var lon=parseFloat(locString[1]);
 var myLatLng = new google.maps.myLatLng(lat,lon);
-map.setZoom(11);
-marker=new google.maps.Marker({
-position: myLatLng,
-map: map
+map.setZoom(13);
+//create a marker and set its position
+var marker=new google.maps.Marker({
+map: map,
+position: myLatLng
 });
 
 
-      infoWindow.setContent(location);
+    infoWindow.setContent(location);
   
 
     infoWindow.open(map,marker);
@@ -119,7 +112,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 
 
-<! *********button on click calls the get location function ********>
 
 
 <br></br>  <br></br> 
