@@ -15,16 +15,16 @@ app.get('/', function(request, response) {
 
 app.get('/json', function(request, response) {
 var list1 = [
-    {"firstName":"John", "lastName":"Doe", "location":"-34.397,150.644"}, 
-    {"firstName":"Anna", "lastName":"Smith", "location":"-30.397,15.644"},
-    {"firstName":"Peter", "lastName":"Jones", "location":"-20.397,-50.644"},
-    {"firstName":"John", "lastName":"Doe", "location":"-99.397,50.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"-84.397,-10.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"10.397,25.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"92.397,82.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"118.397,67.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"-118.397,76.644"}, 
-    {"firstName":"John", "lastName":"Doe", "location":"84.397,-65.644"}, 
+    {"firstName":"John", "lastName":"Doe", "location":"-33.890542,151.274856"}, 
+    {"firstName":"Anna", "lastName":"Smith", "location":"-33.923036,151.259052"},
+    {"firstName":"Peter", "lastName":"Jones", "location":"-34.028249,151.157507"},
+    {"firstName":"John", "lastName":"Doe", "location":"-33.80010128657071,151.28747820854187"}, 
+    {"firstName":"Stephen", "lastName":"Morgan", "location":"-33.950198,151.259302"}, 
+    {"firstName":"Danny", "lastName":"James", "location":"-32.9567,151.954"}, 
+    {"firstName":"Mike", "lastName":"James", "location":"-32.80010,151.1575"}, 
+    {"firstName":"Rose", "lastName":"Doe", "location":"-32.0386,151.9576"}, 
+    {"firstName":"Jenny", "lastName":"Doe", "location":"-31.9876,151.1516"}, 
+    {"firstName":"Alex", "lastName":"Doe", "location":"-31.5678,151.27468"}, 
 ]
 
   response.json(list1);
