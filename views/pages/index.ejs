@@ -25,9 +25,11 @@
 <script>
      $(document).ready(function(){
      $("#map").css('visibility', 'hidden');
+     $("#table").css('visibility', 'hidden');
      
 	$("#click").click(function(){
      $("#map").css('visibility', 'visible');
+     $("#table").css('visibility', 'hidden');
     $.ajax({
         url: '/json',
 	type: 'GET',
