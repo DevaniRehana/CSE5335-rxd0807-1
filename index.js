@@ -23,8 +23,8 @@ var list1 = [
     {"firstName":"Danny", "lastName":"James", "location":"-32.9567,151.954"}, 
     {"firstName":"Mike", "lastName":"James", "location":"-32.80010,151.1575"}, 
     {"firstName":"Rose", "lastName":"Doe", "location":"-32.0386,151.9576"}, 
-    {"firstName":"Jenny", "lastName":"Doe", "location":"-31.9876,151.1516"}, 
-    {"firstName":"Alex", "lastName":"Doe", "location":"-31.5678,151.27468"}, 
+    {"firstName":"Jenny", "lastName":"Doe", "location":"-33. 2867,151.1516"}, 
+    {"firstName":"Alex", "lastName":"Doe", "location":"-33.9876,151.27468"}, 
 ]
 
   response.json(list1);
