@@ -1,8 +1,39 @@
 <!DOCTYPE html>
-<html>
 <head>
+
+	<h2> Click this button to display the JSON content </h2>
+	
+</head>
+
+<body>
+
+<style>
+#map-canvas{
+border-style: solid;
+border-width: 5px;
+height: 60%;
+width: 40%;
+
+}</style>
+
+<table id="table">
+<tr>
+<th> firstName </th>
+<th> lastName </th>
+</tr>
+</table> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+<!--<script type="text/javascript"src="https://www.google.com/jsapi?key=">-->
+<!--<script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDKV-fEFcpam9_ci1RxZlxRZq3X0FOpDlM" 
+            type="text/javascript"></script>
+<script type="text/javascript"charset="utf-8">google.load("maps","2.x"); google.load("jquery","1.3.1");</script>
+-->
+<!--<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKV-fEFcpam9_ci1RxZlxRZq3X0FOpDlM&signed_in=true&callback=initMap"></script>
+-->
 <script
-src="http://maps.googleapis.com/maps/api/js">
+src="https://maps.googleapis.com/maps/api/js">
 </script>
 
 <script>
@@ -11,6 +42,8 @@ var marker;
 
 function initialize()
 {
+
+
 var mapProp = {
   center:myCenter,
   zoom:5,
@@ -29,9 +62,137 @@ marker.setMap(map);
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-</head>
 
-<body>
-<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<script>
+     $(document).ready(function(){
+	initMap();
+	
+	
+	
+
+	
+	
+	
+	
+	$("#click").click(function(){
+    $.ajax({
+        url: '/json',
+	type: 'GET',
+        dataType: "json",
+	
+        success: function(data) {
+		console.log("success");
+	var txt = '';
+	for(var i = 0, size = data.length; i < size ; i++)
+	{
+   var item = data[i];
+   txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+"</td><td>";
+   
+    } 
+    console.log(txt);
+    
+    var length= $("#table").find('td:td').length;	
+	console.log(length);
+
+	if(length==0){
+	$("#table").append(txt);
+	}
+	
+	
+	}
+   });
+ });
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
+ });
+	
+</script>
+ 
+ 
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+  //  <script> -->
+    
+<script>
+
+function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+/*function initMap() {
+
+var myLatLng = new google.maps.myLatLng(13.05,80.18);
+
+// create a map object and specify the DOM element for display	
+var map = new google.maps.Map(document.getElementById('map-canvas'), {
+center: myLatLng,
+scrollwheel: false,
+zoom: 4,
+});
+}
+
+
+
+
+function getLocation(data){
+var map = new GMap2(document.getElementById('map-canvas'));
+for(var i = 0, size = data.length; i < size ; i++)
+	{
+   var item = data[i];
+   txt = item['location'];
+   var locString=txt.split(',',2);
+var lat=parseFloat(locString[0]);
+var lon=parseFloat(locString[1]);
+var point = new GLatLng(lat,lon); 
+  marker = new GMarker(point); 
+  map.addOverlay(marker); 
+  //markers[i] = marker; 
+    }  
+}
+*/
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+  </script>
+
+
+
+
+<br></br>  <br></br> 
+<h3>Displaying location of JSON objects using Google Map </h3>  
+<p>
+<input id="myLatLng" type="text" value="13.05,80.18">
+
+<button id="click" style="color:red; background-color:blue; border-radius:20px;" > Click map </button>
+</p>
+    <div id="map-canvas">
+	
+	 </div>
+	
+	<div id="googleMap" style="width:500px;height:380px;"></div> 
+
 </body>
-</html>
+</html>  
+
+
+
