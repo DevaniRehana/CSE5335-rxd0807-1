@@ -111,7 +111,6 @@ Click me </button>
 
 
 
-<button id="transition">transition</button>
 <div id="test-chart"></div>
 
 //setting up width of the chart, height, X-axis, Y-axis scales
@@ -163,7 +162,7 @@ bars.append("rect")
   .text(function(d) { return d.value; });
   
   //sending ajax get request to server
-  $("#transition").click(function(event) {
+  $("#click").click(function(event) {
   var data = [];
   var req = $.ajax({
     url: '/json',
