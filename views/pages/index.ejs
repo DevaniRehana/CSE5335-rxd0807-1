@@ -24,10 +24,10 @@
 
 <script>
      $(document).ready(function(){
-     $("#map").hide();
+     $("#map").css('visibility', 'hidden');
      
 	$("#click").click(function(){
-	$("#map").show();
+     $("#map").css('visibility', 'visible');
     $.ajax({
         url: '/json',
 	type: 'GET',
