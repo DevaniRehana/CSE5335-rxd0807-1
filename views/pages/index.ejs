@@ -111,7 +111,7 @@ Click me </button>
 
 
 
-<div id="test-chart"></div>
+<div id="map"></div>
 
 //setting up width of the chart, height, X-axis, Y-axis scales
 
@@ -131,7 +131,7 @@ var y = d3.scale.ordinal()
   var color = d3.scale.ordinal()
   .range(["red", "blue"]);
   
-  var svg = d3.select("#test-chart")
+  var svg = d3.select("#map")
   .append("svg")
     .attr("width", w)
     .attr("height", h)
