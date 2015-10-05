@@ -14,6 +14,15 @@ app.get('/', function(request, response) {
 });
 
 app.get('/json', function(request, response) {
+
+var data = [
+{"number":1, "value":8},
+{"number":2, "value":16},
+{"number":3, "value":32},
+{"number":4, "value":64}
+]
+
+/*
 var list1 = [
     {"firstName":"John", "lastName":"Doe", "location":"-33.890542,151.274856", "value":8}, 
     {"firstName":"Anna", "lastName":"Smith", "location":"-33.923036,151.259052","value":12},
@@ -25,7 +34,7 @@ var list1 = [
     {"firstName":"Jeb", "lastName":"Bush", "location":"-32.0386,151.9576","value":29}, 
     {"firstName":"Jenny", "lastName":"Clinton", "location":"-33. 2867,151.1516","value":22}, 
     {"firstName":"Donald", "lastName":"Trump", "location":"-33.9876,151.27468","value":2}, 
-]
+] */
 
   response.json(list1);
 });
