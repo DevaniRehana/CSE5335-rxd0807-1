@@ -78,6 +78,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	
 	
 	$("#click").click(function(){
+	$("#googleMap").show();
     $.ajax({
         url: '/json',
 	type: 'GET',
@@ -192,6 +193,7 @@ var point = new GLatLng(lat,lon);
 	 </div>
 	
 	<div id="googleMap" class="hidden" style="width:500px;height:380px;></div> 
+	
 	
 	
 	
