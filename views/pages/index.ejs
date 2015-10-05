@@ -24,7 +24,10 @@
 
 <script>
      $(document).ready(function(){
+     $("#map").hide();
+     
 	$("#click").click(function(){
+	$("#map").show();
     $.ajax({
         url: '/json',
 	type: 'GET',
