@@ -7,7 +7,8 @@
 
 <body>
 
-<button id="click" style="color:red; background-color:blue; border-radius:20px;"> Click me </button>
+<button id="click" style="color:red; background-color:blue; border-radius:20px;"> 
+Click me </button>
 
 
 <table id="table" border="1">
@@ -17,7 +18,8 @@
 </tr>
 </table> 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> 
+</script>
 <script src="https://maps.google.com/maps/api/js?sensor=false" 
           type="text/javascript"></script>
 
@@ -41,7 +43,8 @@
 	for(var i = 0, size = data.length; i < size ; i++)
 	{
    var item = data[i];
-   txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+"</td><td>";
+   txt = txt + "<tr><td id = td>"+ item.firstName + "</td><td>" + item.lastName+
+   "</td><td>";
    
     } 
     console.log(txt);
@@ -108,7 +111,11 @@
 
 
 
+<button id="transition">transition</button>
 <div id="test-chart"></div>
+
+//setting up width of the chart, height, X-axis, Y-axis scales
+
 var w = 515;
 var h = 660;
 var x = d3.scale.linear()
@@ -117,6 +124,10 @@ var x = d3.scale.linear()
 var y = d3.scale.ordinal()
   .domain(d3.range(data.length))
   .rangeBands([0, h], 0.1);
+  
+  
+  //array holding colors for the rectangles
+  
   
   var color = d3.scale.ordinal()
   .range(["red", "blue"]);
@@ -128,19 +139,21 @@ var y = d3.scale.ordinal()
   .append("g")
     .attr("transform", "translate(20,0)");
     
+    
+    //Initial SVG element creation
     var bars = svg.selectAll(".bar")
     .data(data)
   .enter().append("g")
     .attr("class", "bar")
     .attr("transform", function(d, i) { return "translate(" + 0 + "," + y(i+1) + ")"; });
 
-
+  //Initial bar element creation
 bars.append("rect")
   .attr("fill", function(d, i) { return color(i%2); })
   .attr("width", function(d) { return x(d.value); })
   .attr("height", y.rangeBand());
   
-  
+  //Initial bar label creation
   bars.append("text")
   .attr("x", function(d) { return x(d.value); })
   .attr("y", 0 + y.rangeBand() / 2)
@@ -149,8 +162,8 @@ bars.append("rect")
   .attr("text-anchor", "end")
   .text(function(d) { return d.value; });
   
-  
-  $("#click").click(function(event) {
+  //sending ajax get request to server
+  $("#transition").click(function(event) {
   var data = [];
   var req = $.ajax({
     url: '/json',
@@ -164,10 +177,10 @@ bars.append("rect")
       var rect = svg.selectAll(".bar rect").data(data);
       var text = svg.selectAll(".bar text").data(data);
       var delay = function(d, i) { return i * 50; };
-      rect.click().duration(750)
+      rect.transition().duration(750)
         .delay(delay)
         .attr("width", function(d) { return x(d.value); });
-      text.click().duration(750)
+      text.transition().duration(750)
         .delay(delay)
         .attr("x", function(d) { return x(d.value); })
         .text(function(d) { return d.value; });
@@ -180,10 +193,10 @@ var rect = svg.selectAll(".bar rect").data(data);
     
      var delay = function(d, i) { return i * 50; };
      
-      rect.click().duration(750)
+      rect.transition().duration(750)
       .delay(delay)
       .attr("width", function(d) { return x(d.value); });
-    text.click().duration(750)
+    text.transition().duration(750)
       .delay(delay)
       .attr("x", function(d) { return x(d.value); })
       .text(function(d) { return d.value; });
