@@ -121,22 +121,24 @@
  
  <script>
  
-$(document).ready(function(){
 
-
-
-     
-    $.ajax({
-        url: '/json',
-	type: 'GET',
-        dataType: "json",
 	
-        success: function(data) {
-		console.log("success");
-		charts(data,"BarChart"); // Bar Charts
-	}
-	});
-	});
+function ajax_data(type, url, success)
+{
+$.ajax({
+type:'GET',
+url:'/json',
+dataType:"json",
+
+
+success:function(data){
+console.log("success");
+		charts(data,"BarChart");},
+error:function(data){
+alert("Error In Connecting");
+}
+});
+}
 	
 </script>
 <script>
