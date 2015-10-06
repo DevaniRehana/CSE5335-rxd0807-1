@@ -24,23 +24,22 @@
           
           
           
-          <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="ajaxGetPost.js" ></script>
 <script src="https://www.google.com/jsapi"></script>
 <script>
 
-
-
-
-
-<script>
      $(document).ready(function(){
      $("#map").css('visibility', 'hidden');
      $("#table").css('visibility', 'hidden');
+     $("#bar_div").css('visibility', 'hidden');
+
      
 	$("#click").click(function(){
      $("#map").css('visibility', 'visible');
      $("#table").css('visibility', 'visible');
+          $("#bar_div").css('visibility', 'hidden');
+
     $.ajax({
         url: '/json',
 	type: 'GET',
@@ -120,27 +119,25 @@
   </script>
  
  
- 
- 
+ <script>
+$(document).ready(function(){
 
+<div id="bar_div" ></div>
 
-
-<script>
-
-$(document).ready(function () 
-{
-url='/json';// API URL
-ajax_data('GET',url, function(data)
-{
-
-charts(data,"BarChart"); // Bar Charts
-
-});
-});
+     
+    $.ajax({
+        url: '/json',
+	type: 'GET',
+        dataType: "json",
+	
+        success: function(data) {
+		console.log("success");
+		charts(data,"BarChart"); // Bar Charts
+	}
+	});
+	});
+	
 </script>
-
-
-
 <script>
 
 function charts(data,ChartType)
