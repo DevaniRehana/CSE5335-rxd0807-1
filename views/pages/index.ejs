@@ -20,6 +20,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script>
 <script src="https://maps.google.com/maps/api/js?sensor=false" 
           type="text/javascript"></script>
+          
+          
+          
+          
+          <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="ajaxGetPost.js" ></script>
+<script src="https://www.google.com/jsapi"></script>
+<script>
+
+
+
 
 
 <script>
@@ -105,26 +116,88 @@
     }
     }
 	});
-
-
-
-
-
-   /* for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    } */
+	
   </script>
  
+ 
+ 
+ 
+
+
+
+<script>
+
+$(document).ready(function () 
+{
+url='/json';// API URL
+ajax_data('GET',url, function(data)
+{
+
+charts(data,"BarChart"); // Bar Charts
+
+});
+});
+</script>
+
+
+
+<script>
+
+function charts(data,ChartType)
+{
+var c=ChartType;
+var jsonData=data;
+google.load("visualization", "1", {packages:["corechart"], callback: drawVisualization});
+function drawVisualization() 
+{
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Country');
+data.addColumn('number', 'Population Density');
+$.each(jsonData, function(i,jsonData)
+{
+var value=jsonData.value;
+
+data.addRow([value]);
+});
+
+var options = {
+title : "Word Population Density",
+animation:{ 
+duration: 3000, 
+easing: 'out', 
+startup: true
+},
+colorAxis: {colors: ['#54C492', '#cc0000']},
+datalessRegionColor: '#dedede',
+defaultColor: '#dedede'
+};
+
+var chart;
+if(c=="BarChart") // Column Charts
+chart=new google.visualization.ColumnChart(document.getElementById('bar_div'));
+
+chart.draw(data, options);
+}
+}
+
+var options = {
+title : "Word Population Density",
+is3D: true, //Pie Charts
+colors : ['#54C492','#f96302' ], //Bar of Pie Charts
+animation:{ 
+duration: 3000, 
+easing: 'out', 
+startup: true
+},
+vAxis: {title: "Vertical Axis Title"}, //Bar of Pie Charts
+hAxis: {title: "Horizontal Axis Title "}, //Bar of Pie Charts
+colorAxis: {colors: ['#54C492', '#cc0000']}, //Geo Charts
+datalessRegionColor: '#dedede', //Geo Charts
+defaultColor: '#dedede' //Geo Charts
+};
+
+
+</script>
 </body>
 </html>  
 
