@@ -1,7 +1,17 @@
+CSE 5335 - WEB DATA MANAGEMENT 
+
+PROJECT 1
+
+NAME: REHANA DEVANI
+
+UTA ID: 1001100807
+
+NET ID: rxd0807
 
                What server framework did you choose and why?
 ---------------------------------------------------------------------------
-   I chose Node.js framework for the following reasons:
+   
+     I chose Node.js framework for the following reasons:
    
 1. Node.js is Javascript. So the same language can be used on the backend and frontend.
    This breaks down the boundaries between backend and frontend.
@@ -25,7 +35,8 @@
 
                 What client framework did you choose and why?
 ---------------------------------------------------------------------------------- 
-   I chose JQuery as client framework for the following reasons:
+     
+     I chose JQuery as client framework for the following reasons:
    
 1. JQuery uses simple, clean and powerful syntax. Five lines of JQuery are equivalent to
    25 lines of conventional Javascript code. This means smaller files and faster loading 
@@ -58,22 +69,27 @@
 
 
 
-              What aspect of the implementation did you find easy, if any, and why?
+              What aspect of the implementation did you find easy, if any,   and why?
 ------------------------------------------------------------------------------------
 
 * Performing AJAX call to RESTful web services available on server-side framework was 
   easy for me as I used JQuery for client-side framework and JQuery simplifies AJAX.
+  Using AJAX with JQuery, data can be retrieved from the server without refreshing the 
+  page and without worrying about how the web page behaves.
+
   
   
-             What aspect of the implementation did you find hard, if any, and why?
+             What aspect of the implementation did you find hard, if any,   and why?
   -------------------------------------------------------------------------------------
 *  I had a hard time displaying dots on Google Maps even after including latitude and 
-   longitude values in JSON data.
+   longitude values in JSON data. But I later figured out how to use multiple markers to
+   display locations and assigning close values to locations helped as I could view the 
+   markers without zooming in and out the map.
 
 
 
           What components OTHER than your client and server framework did you install,
-if any, and if so, what is their purpose for your solution?
+           if any, and if so, what is their purpose for your solution?
 —-----------------------------------------------------------------------------------
 
 * Other than client and server framework Express.js was used. It is a Node.js framework.
@@ -95,21 +111,48 @@ if any, and if so, what is their purpose for your solution?
 
          What Ubuntu commands are required to deploy and run your server?
 ------------------------------------------------------------------------------------- 
+PREPARING AND SETTING UP THE SAMPLE APP
 
+// Logging in to heroku from command prompt by entering Email and Password
 - $ heroku login
+
+// Command to clone the sample application
 - $ git clone https://github.com/heroku/node-js-getting-started.git
 - $ cd node-js-getting-started
+
+DEPLOYING THE APP ON HEROKU
+
+// Creating an app on heroku which prepare Heroku to receive your sample code
 - $ heroku create
-- $ git push heroic master
+
+ // Deploying the code
+- $ git push heroku master
+
+// To ensure that atleast one instance of the app is running
 - $ heroku ps:scale web=1
+
+// Command to open the website to visit the app
 - $ heroku open
+
+// To view information about the running app
 - $ heroku logs —-tail
-- $ heroic local web
-- $ npm install
-- $ heroku local
+
+// To start the application locally
+- $ heroku local web
+
+// Manages the set of repositories ("remote") whose branches you track
 - $ git remote -v
+
+// Adds file's content to the index
 - $ git add .
+
+// It commits or saves the changes made
 - $ git commit -m “Demo”
-- $ git push heroic master
-- $ heroku open
+
+// It pushes the code to Heroku after committing
+- $ git push heroku master
+
+// Pushing an existing repository to github from command line
+- git remote add origin https://github.com/DevaniRehana/cse5335-rxd0807.git
+- git push -u origin master
 
