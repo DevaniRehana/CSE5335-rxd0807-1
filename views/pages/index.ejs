@@ -151,12 +151,10 @@ var txt = '';
 	for(var i = 0, size = data.length; i < size ; i++)
 	{
         
-       var item = data[i];
-   chart_data = item['value'];
-charts(chart_data,"BarChart");
+ var item = data[i];
+chart_data = item['value'];
 }
-error:function(data){
-alert("Error In Connecting");
+charts(chart_data,"BarChart");
 }
 
 }).done(function()
@@ -166,6 +164,8 @@ drawVisualization();
 }
 	
 </script>
+
+
 <script>
 
 function charts(chart_data,ChartType)
